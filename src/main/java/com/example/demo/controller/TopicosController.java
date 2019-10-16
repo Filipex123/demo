@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.TopicoDTO;
 import com.example.demo.model.Curso;
 import com.example.demo.model.Topico;
 import org.springframework.stereotype.Controller;
@@ -14,8 +15,8 @@ public class TopicosController {
 
     @GetMapping("/topicos")
     @ResponseBody()
-    public List<Topico> listaTopicos(){
+    public List<TopicoDTO> listaTopicos(){
         Topico topico = new Topico("Duvidas","tire aqui suas duvidas", new Curso("Spring","programacao"));
-        return Arrays.asList(topico);
+        return TopicoDTO.converter(Arrays.asList(topico));
     }
 }
