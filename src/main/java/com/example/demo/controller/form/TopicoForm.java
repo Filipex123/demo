@@ -3,11 +3,20 @@ package com.example.demo.controller.form;
 import com.example.demo.model.Curso;
 import com.example.demo.model.Topico;
 import com.example.demo.repository.CursoRepository;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class TopicoForm {
 
+    @NotNull @NotEmpty @Length(min = 5)
     private String titulo;
+
+    @NotNull @NotEmpty @Length(min = 1)
     private String mensagem;
+
+    @NotNull @NotEmpty @Length(min = 5)
     private String nomeCurso;
 
     public String getTitulo() {
